@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Input from "./components/Input";
 import { getPrompts } from "./services/getPrompts";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <hr />
         </section>
       ))}
+      <Input />
     </>
   );
 }
