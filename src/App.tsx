@@ -2,9 +2,17 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { getPrompts } from "./services/getPrompts";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  getPrompts()
+    .then((prompts) => {
+      console.log("Prompts fetched");
+      console.log(prompts);
+    })
+    .catch((error) => console.error("Error fetching prompts:", error));
 
   return (
     <>
