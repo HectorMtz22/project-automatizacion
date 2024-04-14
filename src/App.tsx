@@ -18,6 +18,7 @@ function App() {
     <>
       {prompts?.map((prompt) => (
         <section key={prompt.createTime.seconds}>
+          <hr />
           <h2>You: {prompt.prompt}</h2>
           <p>Response: {prompt.response}</p>
           <hr />
