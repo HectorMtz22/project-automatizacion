@@ -12,10 +12,10 @@
 
 .chat__assistant,
 .chat__mine {
-  width: 80%;
+  max-width: 80%;
   justify-content: left;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0 1.5rem;
 }
 
 .chat__assistant {
