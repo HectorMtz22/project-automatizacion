@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Input from "./components/Input";
 import { getPrompts } from "./services/getPrompts";
+import styles from "./Chat.module.css";
 
 function App() {
   const [prompts, setPrompts] = useState<null | Prompt[]>(null);
@@ -18,12 +19,18 @@ function App() {
   return (
     <>
       {prompts?.map((prompt) => (
-        <section key={prompt.createTime.seconds}>
-          <hr />
-          <h2>You: {prompt.promptToDisplay}</h2>
-          <p>Response: {prompt.response}</p>
-          <hr />
-        </section>
+        <main key={prompt.createTime.seconds}>
+          <main className={styles.chat__container}>
+            <section className={styles.chat__mine}>
+              <p>{prompt.promptToDisplay}</p>
+            </section>
+          </main>
+          <main className={styles.chat__container}>
+            <section className={styles.chat__assistant}>
+              <p>{prompt.response}</p>
+            </section>
+          </main>
+        </main>
       ))}
       <Input />
     </>
