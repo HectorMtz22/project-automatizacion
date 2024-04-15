@@ -1,6 +1,7 @@
 type Prompt = {
   response: string;
   prompt: string;
+  promptToDisplay: string;
   createTime: Timestamp;
   status: {
     completeTime: Timestamp;
