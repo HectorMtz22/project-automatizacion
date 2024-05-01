@@ -8,14 +8,18 @@ type AddPrompt = (prompt: string) => Promise<void>;
 export const addPrompt: AddPrompt = async (prompt) => {
   // Add a new document with a generated id.
   const pets = await getPets();
-  const prompts = await getPrompts();
+  const prompts = (await getPrompts()).map(({ promptToDisplay, response }) => ({
+    promptToDisplay,
+    response,
+  }));
   // convierte el array de objetos en un string
-
-  console.log(prompts);
 
   const request =
     "Contexto: " +
+    " Animales: " +
     JSON.stringify(pets) +
+    " . Chat previo: " +
+    JSON.stringify(prompts) +
     " . Pregunta: Puede que te dé argumentos de animales que busques o simplemente que me respondas acorde: " +
     prompt;
 
