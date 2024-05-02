@@ -17,6 +17,6 @@ type Timestamp = {
 };
 
 type UseSessionId = {
-  id: number;
+  id: `${string}-${string}-${string}-${string}-${string}` | null;
   setSessionId: () => void;
 };

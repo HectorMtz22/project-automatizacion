@@ -1,8 +1,18 @@
 import { db } from "../firebase";
-import { getDocs, query, collection, orderBy } from "firebase/firestore";
+import { getDocs, query, collection, orderBy, where } from "firebase/firestore";
 
-export const getPrompts = async () => {
-  const q = query(collection(db, "generate"), orderBy("createTime", "asc"));
+type GetPromts = ({
+  sessionId,
+}: {
+  sessionId: string | null;
+}) => Promise<Prompt[]>;
+
+export const getPrompts: GetPromts = async ({ sessionId }) => {
+  const q = query(
+    collection(db, "generate"),
+    orderBy("createTime", "asc"),
+    where("sessionId", "==", sessionId)
+  );
   const querySnapshot = await getDocs(q);
 
   const chat: Prompt[] = [];

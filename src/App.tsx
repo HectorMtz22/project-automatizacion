@@ -11,13 +11,15 @@ function App() {
   if (!sessionId.id) sessionId.setSessionId();
 
   useEffect(() => {
-    getPrompts()
+    getPrompts({
+      sessionId: sessionId.id,
+    })
       .then((prompts) => {
         console.log("Prompts fetched");
         setPrompts(prompts);
       })
       .catch((error) => console.error("Error fetching prompts:", error));
-  }, []);
+  }, [sessionId.id]);
 
   return (
     <>

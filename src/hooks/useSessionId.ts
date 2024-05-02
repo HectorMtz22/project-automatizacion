@@ -3,10 +3,10 @@ import { persist, createJSONStorage } from "zustand/middleware";
 
 const id = crypto.randomUUID();
 
-const useSessionId = create(
+const useSessionId = create<UseSessionId>()(
   persist(
     (set) => ({
-      id: 0,
+      id: null,
       setSessionId: () => set({ id }),
     }),
     {

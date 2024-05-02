@@ -1,13 +1,15 @@
 import { FormEvent } from "react";
 import styles from "./Input.module.css";
 import { addPrompt } from "../../services/addPrompt";
+import useSessionId from "../../hooks/useSessionId";
 
 const Input = () => {
+  const sessionId = useSessionId();
   const handleForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const prompt = data.get("prompt") as string;
-    addPrompt(prompt)
+    addPrompt({ prompt, sessionId: sessionId.id })
       .then(() => {
         console.log("Prompt added");
         e.currentTarget.reset();

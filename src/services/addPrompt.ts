@@ -3,15 +3,23 @@ import { addDoc, collection } from "firebase/firestore";
 import { getPets } from "./getPets";
 import { getPrompts } from "./getPrompts";
 
-type AddPrompt = (prompt: string) => Promise<void>;
+type AddPrompt = ({
+  prompt,
+  sessionId,
+}: {
+  prompt: string;
+  sessionId: string | null;
+}) => Promise<void>;
 
-export const addPrompt: AddPrompt = async (prompt) => {
+export const addPrompt: AddPrompt = async ({ prompt, sessionId }) => {
   // Add a new document with a generated id.
   const pets = await getPets();
-  const prompts = (await getPrompts()).map(({ promptToDisplay, response }) => ({
-    promptToDisplay,
-    response,
-  }));
+  const prompts = (await getPrompts({ sessionId })).map(
+    ({ promptToDisplay, response }) => ({
+      promptToDisplay,
+      response,
+    })
+  );
   // convierte el array de objetos en un string
   const request =
     "Contexto: " +
@@ -25,6 +33,7 @@ export const addPrompt: AddPrompt = async (prompt) => {
   const docRef = await addDoc(collection(db, "generate"), {
     prompt: request,
     promptToDisplay: prompt,
+    sessionId,
   });
   console.log("Document written with ID: ", docRef.id);
 };
