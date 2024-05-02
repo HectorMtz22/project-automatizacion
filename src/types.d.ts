@@ -15,3 +15,8 @@ type Timestamp = {
   seconds: number;
   nanoseconds: number;
 };
+
+type UseSessionId = {
+  id: number;
+  setSessionId: () => void;
+};

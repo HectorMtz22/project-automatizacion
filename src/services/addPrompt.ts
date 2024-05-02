@@ -13,7 +13,6 @@ export const addPrompt: AddPrompt = async (prompt) => {
     response,
   }));
   // convierte el array de objetos en un string
-
   const request =
     "Contexto: " +
     " Animales: " +

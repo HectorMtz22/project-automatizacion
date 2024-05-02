@@ -3,9 +3,12 @@ import "./App.css";
 import Input from "./components/Input";
 import { getPrompts } from "./services/getPrompts";
 import styles from "./Chat.module.css";
+import useSessionId from "./hooks/useSessionId";
 
 function App() {
   const [prompts, setPrompts] = useState<null | Prompt[]>(null);
+  const sessionId = useSessionId();
+  if (!sessionId.id) sessionId.setSessionId();
 
   useEffect(() => {
     getPrompts()
