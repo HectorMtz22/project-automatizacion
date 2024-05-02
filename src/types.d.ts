@@ -20,3 +20,12 @@ type UseSessionId = {
   id: `${string}-${string}-${string}-${string}-${string}` | null;
   setSessionId: () => void;
 };
+
+type Pets = {
+  color: string;
+  contact_email: string;
+  location: string;
+  name: string;
+  time_encountered: string;
+  type: string;
+};
