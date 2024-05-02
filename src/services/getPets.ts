@@ -6,10 +6,10 @@ export const getPets = async () => {
 
   const querySnapshot = await getDocs(q);
 
-  const pets: [] = [];
+  const pets: Pets[] = [];
 
   querySnapshot.forEach((doc) => {
-    pets.push(doc.data());
+    pets.push(doc.data() as Pets);
   });
 
   return pets;
