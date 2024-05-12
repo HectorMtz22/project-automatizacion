@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPets } from "services/getPets";
+import { Link } from "react-router-dom";
 
 import styles from "./list.module.css";
 
@@ -23,6 +24,10 @@ const ListOfAnimals = () => {
           </article>
         ))}
       </section>
+
+      <Link to="add-pet" role="button">
+        <button>Agregar Mascota Encontrada</button>
+      </Link>
     </main>
   );
 };
