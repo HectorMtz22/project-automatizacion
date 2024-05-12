@@ -22,6 +22,7 @@ type UseSessionId = {
 };
 
 type Pets = {
+  id: string;
   color: string;
   contact_email: string;
   location: string;
