@@ -1,7 +1,9 @@
 import { addPet } from "services/addPet";
 import styles from "./addPet.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AddPet = () => {
+  const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -21,6 +23,7 @@ const AddPet = () => {
     if (response) {
       alert("Mascota agregada correctamente");
       form.reset();
+      navigate("/");
     }
   };
   return (
