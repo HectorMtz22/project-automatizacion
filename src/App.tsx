@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Chat from "routes/chat";
 import ListOfAnimals from "routes/listOfAnimals";
+import AddPet from "routes/addPet";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/chat",
     element: <Chat />,
+  },
+  {
+    path: "/add-pet",
+    element: <AddPet />,
   },
 ]);
 
