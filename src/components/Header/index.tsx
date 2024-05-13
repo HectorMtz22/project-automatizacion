@@ -39,7 +39,7 @@ const Header = () => {
         <h2>Recuerda que tú puedes hacer la diferencia en sus vidas</h2>
         <img
           className="perro-header"
-          src="../imagenes/perro1.jpg"
+          src="/imagenes/perro1.jpg"
           alt="Texto Alternativo de la Imagen"
         />
       </div>
