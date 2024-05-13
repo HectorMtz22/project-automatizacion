@@ -5,6 +5,7 @@ import Chat from "routes/chat";
 import ListOfAnimals from "routes/listOfAnimals";
 import AddPet from "routes/addPet";
 import Header from "components/Header";
+import Footer from "components/Footer";
 
 const router = createBrowserRouter([
   {
@@ -24,9 +25,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-
-  <Header />
-<RouterProvider router={router} />
+      <Header />
+      <RouterProvider router={router} />
+      <Footer />
     </>
   );
 }
