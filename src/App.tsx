@@ -4,6 +4,7 @@ import "./App.css";
 import Chat from "routes/chat";
 import ListOfAnimals from "routes/listOfAnimals";
 import AddPet from "routes/addPet";
+import Header from "components/Header";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Header />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;
