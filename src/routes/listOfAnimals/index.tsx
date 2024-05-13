@@ -17,10 +17,12 @@ const ListOfAnimals = () => {
       <h1>Lista de mascotas encontradas</h1>
       <section className={styles.list}>
         {animals.map((animal) => (
-          <article key={animal.id}>
+          <article key={animal.id} className={styles.item}>
             <h2>Nombre: {animal.name}</h2>
+            <h3>{animal.type}</h3>
             <p>Color: {animal.color}</p>
             <p>Correo de Contacto: {animal.contact_email}</p>
+            <p>Encontrado en: {animal.location}</p>
           </article>
         ))}
       </section>
