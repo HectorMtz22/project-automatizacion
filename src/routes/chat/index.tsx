@@ -9,6 +9,7 @@ const INITIAL_PROMPT =
 
 const Chat = () => {
   const [prompts, setPrompts] = useState<null | Prompt[]>(null);
+  const [error, setError] = useState<null | string>(null);
   const sessionId = useSessionId();
   if (!sessionId.id) sessionId.setSessionId();
 
@@ -16,9 +17,14 @@ const Chat = () => {
     getPrompts({
       sessionId: sessionId.id,
     })
-      .then((prompts) => {
+      .then(({ chat, error }) => {
         console.log("Prompts fetched");
-        setPrompts(prompts);
+        setPrompts(chat);
+        setError(
+          error
+            ? "Estamos teniendo problemas con Google AI. Intente más tarde..."
+            : null
+        );
       })
       .catch((error) => console.error("Error fetching prompts:", error));
   }, [sessionId.id]);
@@ -47,6 +53,13 @@ const Chat = () => {
           </main>
         </main>
       ))}
+      {error && (
+        <main className={styles.chat__container}>
+          <section className={styles.chat__assistant}>
+            <p>{error}</p>
+          </section>
+        </main>
+      )}
       <Input />
     </article>
   );

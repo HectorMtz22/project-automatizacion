@@ -14,7 +14,7 @@ type AddPrompt = ({
 export const addPrompt: AddPrompt = async ({ prompt, sessionId }) => {
   // Add a new document with a generated id.
   const pets = await getPets();
-  const prompts = (await getPrompts({ sessionId })).map(
+  const prompts = (await getPrompts({ sessionId })).chat.map(
     ({ promptToDisplay, response }) => ({
       promptToDisplay,
       response,
