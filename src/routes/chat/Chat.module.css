@@ -1,5 +1,8 @@
 .container {
-  padding: 2rem;
+  padding: 0 2rem;
+  height: 100vh;
+  place-content: center;
+  background-color: #2e2e2e;
 }
 
 .chat__container {
@@ -19,7 +22,7 @@
   max-width: 80%;
   justify-content: left;
   border-radius: 10px;
-  padding: 0 1.5rem;
+  padding: 12px;
 }
 
 .chat__assistant {
