@@ -34,4 +34,5 @@
 .chat__mine {
   text-align: right;
   background-color: var(--primary-color);
+  color: white;
 }
