@@ -39,7 +39,12 @@ const ListOfAnimals = () => {
           <button popovertarget="chatbot-ai" id="chatbot">
             <i className="fa-solid fa-comment fa-2xs"></i>
           </button>
-          <iframe popover id="chatbot-ai" src="/chat" frameborder="0"></iframe>
+          <iframe
+            popover=""
+            id="chatbot-ai"
+            src="/chat"
+            frameborder="0"
+          ></iframe>
         </main>
       </main>
       <Footer />
