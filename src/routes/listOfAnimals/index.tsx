@@ -36,10 +36,12 @@ const ListOfAnimals = () => {
         </Link>
 
         <main className="iframe-chat">
+          {/* @ts-expect-error popover */}
           <button popovertarget="chatbot-ai" id="chatbot">
             <i className="fa-solid fa-comment fa-2xs"></i>
           </button>
           <iframe
+            // @ts-expect-error popover
             popover=""
             id="chatbot-ai"
             src="/chat"
