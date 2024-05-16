@@ -24,7 +24,7 @@ const Chat = () => {
   }, [sessionId.id]);
 
   return (
-    <>
+    <article className={styles.container}>
       <main>
         <main></main>
         <main className={styles.chat__container}>
@@ -48,7 +48,7 @@ const Chat = () => {
         </main>
       ))}
       <Input />
-    </>
+    </article>
   );
 };
 
