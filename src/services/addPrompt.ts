@@ -30,7 +30,7 @@ export const addPrompt: AddPrompt = async ({ prompt, sessionId }) => {
     " . Pregunta: Puede que te dé argumentos de animales que busques o simplemente que me respondas acorde: " +
     prompt;
 
-  const docRef = await addDoc(collection(db, "generate"), {
+  const docRef = await addDoc(collection(db, "generation"), {
     prompt: request,
     promptToDisplay: prompt,
     sessionId,

@@ -10,7 +10,7 @@ type GetPromts = ({
 export const getPrompts: GetPromts = async ({ sessionId }) => {
   let error = false;
   const q = query(
-    collection(db, "generate"),
+    collection(db, "generation"),
     orderBy("createTime", "asc"),
     where("sessionId", "==", sessionId)
   );
