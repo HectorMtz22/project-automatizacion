@@ -1,4 +1,4 @@
-import './styles.css'
+import "./styles.css";
 
 const Header = () => {
   return (
@@ -27,7 +27,7 @@ const Header = () => {
             <li>
               <a href="#">
                 <button className="sesion-usuario" type="button">
-                  <i className="fas fa-user"></i> Linet
+                  <i className="fas fa-user"></i> Héctor
                 </button>
               </a>
             </li>
