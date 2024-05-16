@@ -1,6 +1,8 @@
 import { addPet } from "services/addPet";
 import styles from "./addPet.module.css";
 import { useNavigate } from "react-router-dom";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 const AddPet = () => {
   const navigate = useNavigate();
@@ -28,6 +30,7 @@ const AddPet = () => {
   };
   return (
     <>
+      <Header />
       <h1>Agregar Mascota Encontrada</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
@@ -58,6 +61,7 @@ const AddPet = () => {
           Agregar
         </button>
       </form>
+      <Footer />
     </>
   );
 };
