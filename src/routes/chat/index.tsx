@@ -10,6 +10,7 @@ const INITIAL_PROMPT =
 const Chat = () => {
   const [prompts, setPrompts] = useState<null | Prompt[]>(null);
   const [error, setError] = useState<null | string>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const sessionId = useSessionId();
   if (!sessionId.id) sessionId.setSessionId();
 
@@ -25,6 +26,7 @@ const Chat = () => {
             ? "Estamos teniendo problemas con Google AI. Intente más tarde..."
             : null
         );
+        setIsLoading(false);
       })
       .catch((error) => console.error("Error fetching prompts:", error));
   }, [sessionId.id]);
@@ -57,6 +59,13 @@ const Chat = () => {
         <main className={styles.chat__container}>
           <section className={styles.chat__assistant}>
             <p>{error}</p>
+          </section>
+        </main>
+      )}
+      {isLoading && (
+        <main className={styles.chat__container}>
+          <section className={styles.chat__assistant}>
+            <p>Cargando...</p>
           </section>
         </main>
       )}
