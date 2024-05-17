@@ -8,7 +8,7 @@ const Header = () => {
           <i className="fas fa-paw"></i>
         </div>
         <div className="header-text">
-          <p>Mascotas perdidas en acción</p>
+          <h1>Mascotas perdidas en acción</h1>
         </div>
         <nav>
           <ul>
