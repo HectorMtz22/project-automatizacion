@@ -69,7 +69,7 @@ const Chat = () => {
           </section>
         </main>
       )}
-      <Input />
+      <Input handleLoading={() => setIsLoading(true)} />
     </article>
   );
 };

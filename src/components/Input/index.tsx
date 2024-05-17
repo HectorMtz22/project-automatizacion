@@ -3,13 +3,14 @@ import styles from "./Input.module.css";
 import { addPrompt } from "../../services/addPrompt";
 import useSessionId from "../../hooks/useSessionId";
 
-const Input = () => {
+const Input = ({ handleLoading }: { handleLoading: () => void }) => {
   const [prompt, setPrompt] = useState<string>("");
   const sessionId = useSessionId();
   const handleForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const prompt = data.get("prompt") as string;
+    handleLoading();
     addPrompt({ prompt, sessionId: sessionId.id })
       .then(() => {
         console.log("Prompt added");
